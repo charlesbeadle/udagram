@@ -9,7 +9,7 @@
 	"scripts": {
 		"start": "node ./www/server.js",
 		"start:dev": "node ./www/server.js",
-		"tsc": "npx tsc",
+		"tsc": "npx tsc 1> /dev/null 2>&1",
 		"dev": "npx ts-node-dev --respawn --transpile-only ./src/server.ts",
 		"prod": "npx tsc && node ./www/server.js",
 		"clean": "rm -rf www/ || true",
