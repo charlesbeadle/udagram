@@ -34,15 +34,13 @@ jobs:
     steps:
       - node/install:
           node-version: '14.15'
-      - checkout
-      - aws-cli/setup
       - eb/setup
+      - aws-cli/setup
+      - checkout
+      # TODO: Install, build, deploy in both apps
       - run:
-          name: Deploy Backend
-          command: npm run api:deploy
-      - run:
-          name: Deploy frontend
-          command: npm run frontend:deploy
+          name: Deploy Front/Backend
+          command: npm run deploy
 
 workflows:
   udagram:
