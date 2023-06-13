@@ -8,11 +8,11 @@ jobs:
     docker:
       - image: 'cimg/node:14.15'
     steps:
-      - node/install:
+      - node/install: # Install Node.js
           node-version: '14.15'
-      - checkout
-      - aws-cli/setup
-      - eb/setup
+      - checkout # Checkout the source code
+      - aws-cli/setup # Set up AWS CLI
+      - eb/setup # Set up Elastic Beanstalk
       - run:
           name: Install Front-End Dependencies
           command: npm run frontend:install
@@ -37,7 +37,6 @@ jobs:
       - eb/setup
       - aws-cli/setup
       - checkout
-      # TODO: Install, build, deploy in both apps
       - run:
           name: Deploy Front/Backend
           command: npm run deploy
